@@ -47,6 +47,8 @@ class MapSampleState extends State<MapSample> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
+        myLocationEnabled: false,
+        markers: _markers,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _goToTheLake,
