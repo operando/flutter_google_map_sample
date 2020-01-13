@@ -42,7 +42,7 @@ class MapSampleState extends State<MapSample> {
       appBar: AppBar(
           title: Text("Google Map Sample"), backgroundColor: Colors.green[700]),
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
