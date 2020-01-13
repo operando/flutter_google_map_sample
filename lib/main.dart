@@ -23,6 +23,8 @@ class MapSample extends StatefulWidget {
 class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
 
+  final Set<Marker> _markers = {};
+
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.474,
@@ -55,5 +57,8 @@ class MapSampleState extends State<MapSample> {
   Future<void> _goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    setState(() {
+      _markers.add(Marker(markerId: MarkerId("test"), position: _kLake.target));
+    });
   }
 }
